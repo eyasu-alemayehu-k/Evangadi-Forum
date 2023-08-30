@@ -3,7 +3,7 @@
   height: 50em;
   background: url("https://www.evangadi.com/themes/humans/assets/images/misc/bg-svg-f.svg")
     center no-repeat;
-  background-color: #f8f8f8;
+  background-color: var(--lightGray);
   background-size: cover;
   gap: 2em;
 }
@@ -14,7 +14,7 @@
   padding: 3em;
   box-shadow: 0 0 5px 1px #ebebeb;
   border-radius: 0.5em;
-  background: white;
+  background: var(--white);
   overflow: hidden;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .login__top p {
-  color: #666;
+  color: var(--darkGray);
 }
 
 .login_container .login__link {
@@ -42,7 +42,7 @@
 
 .login_container form .forgot__link {
     text-decoration: none;
-    color: #fe8402;
+    color: var(--orange);
     text-align: right;
     margin-bottom: 1em;
 }
@@ -55,7 +55,7 @@
 }
 
 .login_container input {
-    color: #333333;
+    color: var(--darkGray);
     font-size: 16px;
     height: 50px;
     padding: 12px;
@@ -66,7 +66,7 @@
 }
 
 .login_container input:focus {
-    border-bottom: 2px solid #fe8402;
+    border-bottom: 2px solid var(--orange);
 }
 
 .login_container form button {
@@ -76,7 +76,7 @@
 }
 .login_container form button:hover {
     cursor: pointer;
-    background: #fe8402;
+    background: var(--orange);
 }
 
 .login__about {
@@ -84,24 +84,24 @@
 }
 
 .login__about--title {
-    color: #fe8402;
+    color: var(--orange);
 }
 
 .login__about .about__detail h1 {
-    color: #4b456f;
+    color: var(--purple);
     font-size: 2.4em;
     font-weight: bold;
     margin-bottom: 1em;
 }
 
 .login__about .about__detail p {
-    color: #656565;
+    color: var(--darkGray);
     line-height: 1.6;
     margin-bottom: 1em;
 }
 
 .login__about button {
-    background: #fe8402;
+    background: var(--orange);
     border-radius: .5em;
     padding: .7em 2em;
     font-size: 1em;

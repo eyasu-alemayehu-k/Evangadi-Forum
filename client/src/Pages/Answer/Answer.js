@@ -1,4 +1,4 @@
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import "./Answer.css";
 import axios from "../../Constant/axios";
 import { useEffect, useState } from "react";
@@ -15,7 +15,7 @@ function Answer() {
   let qid = searchparams.get("id");
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.post("/question/qid", {
+      const request = await axios.post("api/question/qid", {
         qid: qid,
       });
       // console.log(request);
@@ -35,7 +35,7 @@ function Answer() {
     e.preventDefault();
     try {
       //sending user data to database to be logged in
-      const questionAddRes = await axios.post("/answer/add", {
+      const questionAddRes = await axios.post("api/answer/add", {
         answer: form.answer,
         answer_code_block: "...",
         user_id: userData.user.id,
@@ -52,7 +52,7 @@ function Answer() {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.post("/answer/qid", {
+      const request = await axios.post("api/answer/qid", {
         qid: qid,
       });
       // console.log(request)
@@ -60,7 +60,7 @@ function Answer() {
       return request;
     }
     fetchData();
-  }, [qid, handleSubmit]);
+  }, [qid]);
   // console.log(allAnswers);
 
   return (

@@ -18,13 +18,13 @@ function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get("/question/all");
+      const request = await axios.get("api/question/all");
       // console.log(request)
       setAllQuestions(request.data.data);
       return request;
     }
     fetchData();
-  }, []);
+  }, [userData.user]);
   // console.log(allQuestions);
 
   return (

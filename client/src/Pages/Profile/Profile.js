@@ -3,13 +3,11 @@ import { useUserContext } from "../../Context/UserContext";
 import "./Profile.css";
 import axios from "../../Constant/axios";
 import EditIcon from "@mui/icons-material/Edit";
-import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const [userData] = useUserContext();
   const [user, setUser] = useState([]);
   const [form, setForm] = useState({});
-  const navigate = useNavigate();
 
   //importing global state from context
   const handleChange = (e) => {
@@ -19,7 +17,7 @@ function Profile() {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.post("/users/id", {
+      const request = await axios.post("api/users/id", {
         id: userData.user.id,
       });
       // console.log(request)

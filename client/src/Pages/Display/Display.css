@@ -1,7 +1,7 @@
 .display {
     width: 100%;
     padding: 1em 1em;
-    background-color: #fdfdfd;
+    background-color: var(--lightGray);
     margin-bottom: 1em;
     border-radius: 1em;
     box-shadow: 0 0 2px 1px #b3b3b3;
@@ -9,7 +9,7 @@
 
 .display:hover {
     cursor: pointer;
-    box-shadow: 0 0 2px 1px #fe8402;
+    box-shadow: 0 0 2px 1px var(--orange);
 }
 
 .avatar img {
@@ -28,5 +28,5 @@
 }
 
 .right__arrow:hover {
-    color: #fe8402;
+    color: var(--orange);
 }

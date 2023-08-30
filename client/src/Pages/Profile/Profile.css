@@ -42,12 +42,12 @@
     position: absolute;
     top: 20%;
     right: 5%;
-    color: #888;
+    color: var(--darkGray);
 }
 
 .profile__info p .right .edit_icon:hover {
     cursor: pointer;
-    color: #fe8402;
+    color: var(--orange);
 }
 
 .profile__info p span input {
@@ -58,9 +58,9 @@
 
 .profile__button button {
   margin-top: 1.5em;
-  background: #516cf0;
+  background: var(--purple);
 }
 .profile__button button:hover {
   cursor: pointer;
-  background: #fe8402;
+  background:  var(--orange);
 }

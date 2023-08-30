@@ -3,7 +3,7 @@
   height: 50em;
   background: url("https://www.evangadi.com/themes/humans/assets/images/misc/bg-svg-f.svg")
     center no-repeat;
-  background-color: #f8f8f8;
+  background-color: var(--lightGray);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
   padding: 3em;
   box-shadow: 0 0 5px 1px #ebebeb;
   border-radius: 0.5em;
-  background: white;
+  background: var(--white);
   overflow: hidden;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .signup__top h3 {
-  color: #4b456f;
+  color: var(--purple);
   margin-bottom: 1rem;
   font-size: 1.3em;
 }
@@ -41,14 +41,14 @@
 .signup__top p a,
 .signup_container form p a {
   text-decoration: none;
-  color: #fe8402;
+  color: var(--orange);
   margin-left: 0.4em;
   text-align: center;
 }
 
 .signup__link--bottom {
   text-decoration: none;
-  color: #fe8402;
+  color: var(--orange);
   margin-left: 0.4em;
   text-align: center;
 }
@@ -59,7 +59,7 @@
 
 .signup_container form .forgot__link {
   text-decoration: none;
-  color: #fe8402;
+  color: var(--orange);
   text-align: right;
   margin-bottom: 1em;
 }
@@ -72,7 +72,7 @@
 }
 
 .signup_container input {
-  color: #333333;
+  color: var(--darkGray);
   font-size: 16px;
   height: 50px;
   padding: 12px;
@@ -83,17 +83,17 @@
 }
 
 .signup_container input:focus {
-  border-bottom: 2px solid #fe8402;
+  border-bottom: 2px solid var(--orange);
 }
 
 .signup_container form button {
-  background: #516cf0;
+  background: var(--blue);
   font-size: 1.2em;
   font-weight: normal;
 }
 .signup_container form button:hover {
   cursor: pointer;
-  background: #fe8402;
+  background: var(--orange);
 }
 
 .signup__name {
@@ -111,24 +111,24 @@
 }
 
 .signup__about--title {
-  color: #fe8402;
+  color: var(--orange);
 }
 
 .signup__about .about__detail h1 {
-  color: #4b456f;
+  color: var(--purple);
   font-size: 2.4em;
   font-weight: bold;
   margin-bottom: 1em;
 }
 
 .signup__about .about__detail p {
-  color: #656565;
+  color: var(--darkGray);
   line-height: 1.6;
   margin-bottom: 1em;
 }
 
 .signup__about button {
-  background: #fe8402;
+  background: var(--orange);
   border-radius: 0.5em;
   padding: 0.7em 2em;
   font-size: 1em;

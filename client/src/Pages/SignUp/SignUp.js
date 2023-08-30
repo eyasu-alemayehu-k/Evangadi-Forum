@@ -14,12 +14,14 @@ function SignUp() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  console.log(userData)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post("/users", form);
 
-      const loginRes = await axios.post("users/login", {
+      const loginRes = await axios.post("api/users/login", {
         email: form.email,
         password: form.password,
       });

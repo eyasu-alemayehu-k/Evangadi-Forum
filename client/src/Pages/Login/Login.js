@@ -9,6 +9,8 @@ function Login() {
   const navigate = useNavigate();
   const [form, setForm] = useState({});
 
+  console.log(userData)
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -16,7 +18,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const loginRes = await axios.post("/users/login", {
+      const loginRes = await axios.post("api/users/login", {
         email: form.email,
         password: form.password,
       });
