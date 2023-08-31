@@ -60,3 +60,30 @@
 .answer__form form textarea {
     width: 100%;
 }
+
+
+@media screen and (max-width: 600px) { 
+    .answer_title h2,
+    .answer__question h3{
+        font-size: 16px;
+    }
+    .answer__question p,
+    .answer__form .textarea ,
+    .answer__form a{
+        font-size: 14px;
+    }
+    .answer__question h1,
+    .answer__form h1 {
+        font-size: 20px;
+    }
+    .answer__form {
+        width: 90vw;
+        padding: 2em 2em;
+    }
+    .answer__form .btn {
+        font-size: 14px;
+        font-weight: normal;
+    }
+    
+    
+}
