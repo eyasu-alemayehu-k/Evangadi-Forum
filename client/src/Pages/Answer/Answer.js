@@ -4,6 +4,7 @@ import axios from "../../Constant/axios";
 import { useEffect, useState } from "react";
 import { useUserContext } from "../../Context/UserContext";
 import Display from "../Display/Display";
+import { useNavigate } from "react-router-dom";
 
 function Answer() {
   const [userData] = useUserContext();
@@ -11,6 +12,11 @@ function Answer() {
   const [getQuestion, setQuestion] = useState([]);
   const [form, setForm] = useState({});
   const [allAnswers, setAllAnswers] = useState([]);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!userData.user) navigate("/login");
+  }, [userData.user, navigate]);
 
   let qid = searchparams.get("id");
   useEffect(() => {
@@ -42,7 +48,7 @@ function Answer() {
         question_id: qid,
       });
 
-      setForm({})
+      setForm({});
       alert(questionAddRes.data.msg);
     } catch (err) {
       console.log("problem", err.response.data.msg);
@@ -56,7 +62,8 @@ function Answer() {
         qid: qid,
       });
       // console.log(request)
-      setAllAnswers(request.data.data);
+      const reverseAnswer = request.data.data.reverse();
+      setAllAnswers(reverseAnswer);
       return request;
     }
     fetchData();
@@ -70,7 +77,7 @@ function Answer() {
           {getQuestion.map((items) => (
             <div>
               <div className="answer__question">
-                <h1 className='mb-1 col-1'>Questions</h1>
+                <h1 className="mb-1 col-1">Questions</h1>
                 <h3>{items.question}</h3>
                 <p>🤔 {items.question_description}</p>
               </div>
@@ -92,7 +99,7 @@ function Answer() {
           </div>
         </div>
         <div className="answer__form">
-          <h1 className='mb-1 col-1'>Answer The Top Question</h1>
+          <h1 className="mb-1 col-1">Answer The Top Question</h1>
           <Link to="/">Go to Question page</Link>
           <form onSubmit={handleSubmit}>
             <textarea

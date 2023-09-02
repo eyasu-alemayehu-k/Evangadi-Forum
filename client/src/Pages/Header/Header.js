@@ -1,4 +1,4 @@
-import { useUserContext } from "../../Context/UserContext";
+import { useCountContext, useUserContext } from "../../Context/UserContext";
 import { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
@@ -8,6 +8,10 @@ import CloseIcon from "@mui/icons-material/Close";
 function Header() {
   const [userData, setUserData] = useUserContext();
   const [toggle, setToggle] = useState(true);
+  const [count, setCount] =useCountContext()
+
+
+  console.log(count)
 
   const logout = () => {
     setUserData({
@@ -18,6 +22,7 @@ function Header() {
     //resetting localStorage
     localStorage.setItem("auth-token", "");
     setToggle(true);
+    setCount(3)
   };
   // console.log(toggle);
 

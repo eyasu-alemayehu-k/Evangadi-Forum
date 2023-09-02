@@ -1,37 +1,49 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useUserContext } from "../../Context/UserContext";
+import { useCountContext, useUserContext } from "../../Context/UserContext";
 import { useEffect, useState } from "react";
 import "./Home.css";
 import axios from "../../Constant/axios";
 import Display from "../Display/Display";
 import SearchIcon from "@mui/icons-material/Search";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 function Home() {
   const [userData] = useUserContext();
   const [allQuestions, setAllQuestions] = useState([]);
   const [search, setSearch] = useState("");
+  const [count, setCount] = useCountContext(3);
+
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (!userData.user) navigate("/login");
+    if (!userData.user) {
+      navigate("/login");
+    }
   }, [userData.user, navigate]);
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get("api/question/all");
       // console.log(request)
-      setAllQuestions(request.data.data);
+      const reverseQuestions = request.data.data.reverse();
+      setAllQuestions(reverseQuestions);
       return request;
     }
     fetchData();
   }, [userData.user]);
   // console.log(allQuestions);
 
+  const incrementByTen = () => {
+    setCount(count + 3);
+  };
+
+  console.log(count);
+
   return (
     <div className="home flex justify-center">
       <div className="home__container">
         <div className="home__header flex align-center justify-space-between">
-          <div className="home_welcome" onClick={() => navigate("/profile")}>
+          <div className="home_welcome">
             <h2 className="flex-column align-center center">
               <p>Welcome</p>
               <Link to="/">{userData.user?.display_name}</Link>
@@ -64,14 +76,24 @@ function Home() {
                   ? items
                   : items.question.toLowerCase().includes(search.toLowerCase());
               })
-              .map((items) => (
-                <Display
-                  key={items.question_id}
-                  data={items.question}
-                  question_id={items.question_id}
-                  user_id={items.user_id}
-                />
-              ))}
+              .map(
+                (items, index) =>
+                  index < count && (
+                    <Display
+                      key={items.question_id}
+                      data={items.question}
+                      question_id={items.question_id}
+                      user_id={items.user_id}
+                    />
+                  )
+              )}
+            <div className="question__more">
+              <div className="more__btn" onClick={incrementByTen}>
+                <button className="btn">
+                  <span>{ count < allQuestions.length ? "More Results" : "Result End"}</span> { count < allQuestions.length ?<KeyboardArrowDownIcon /> : ""}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
